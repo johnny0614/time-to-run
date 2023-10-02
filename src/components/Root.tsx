@@ -13,9 +13,7 @@ import About from "./About";
 
 function Root() {
   return (
-    <Router
-      basename={`${process.env.PUBLIC_URL}`}
-    >
+    <Router>
       <div className="root">
         <h1 className="header"><NavLink end to="/" className="primary">Time to Run</NavLink></h1>
         <NavLink end to="/about" className="about-link inverted">About</NavLink>

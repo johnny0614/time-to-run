@@ -8,6 +8,10 @@ export default defineConfig({
   plugins: [
     react(),
     viteTsconfigPaths(),
-    svgr(),
+    svgr({
+      svgrOptions: {
+        
+      }
+    }),
   ]
 })
