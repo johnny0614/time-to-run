@@ -59,7 +59,7 @@ $max-width-percentage: #{100% * $max-width-percentage-decimal};
         max-width: $max-width-pixels;
     }
 
-    @media screen and (max-width: #{$max-width-pixels / $max-width-percentage-decimal}) {
+    @media screen and (max-width: calc($max-width-pixels / $max-width-percentage-decimal)) {
         max-width: $max-width-percentage;
     }
 }

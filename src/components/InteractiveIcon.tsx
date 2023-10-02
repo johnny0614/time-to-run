@@ -4,27 +4,27 @@ import "./InteractiveIcon.scss";
 
 import { func } from "../lib/utils";
 
-// import { ReactComponent as SaveIcon } from "../icons/save.svg";
-// import { ReactComponent as EditIcon } from "../icons/edit.svg";
-// import { ReactComponent as TimesIcon } from "../icons/times.svg";
-// import { ReactComponent as PlusIcon } from "../icons/plus.svg";
-// import { ReactComponent as MinusIcon } from "../icons/minus.svg";
-// import { ReactComponent as ChevronUpIcon } from "../icons/chevron-up.svg";
-// import { ReactComponent as ChevronDownIcon } from "../icons/chevron-down.svg";
-// import { ReactComponent as ArrowsIcon } from "../icons/arrows.svg";
+import SaveIcon from "../icons/save.svg?react";
+import EditIcon from "../icons/edit.svg?react";
+import TimesIcon from "../icons/times.svg?react";
+import PlusIcon from "../icons/plus.svg?react";
+import MinusIcon from "../icons/minus.svg?react";
+import ChevronUpIcon from "../icons/chevron-up.svg?react";
+import ChevronDownIcon from "../icons/chevron-down.svg?react";
+import ArrowsIcon from "../icons/arrows.svg?react";
 
 export type Icon = "save" | "edit" | "times" | "plus" | "minus" | "chevronup" | "chevrondown" | "arrows";
 
-// const iconToComponent: {[key in Icon]: React.FunctionComponent<React.SVGProps<SVGSVGElement>>} = {
-//   save: SaveIcon,
-//   edit: EditIcon,
-//   times: TimesIcon,
-//   plus: PlusIcon,
-//   minus: MinusIcon,
-//   chevronup: ChevronUpIcon,
-//   chevrondown: ChevronDownIcon,
-//   arrows: ArrowsIcon,
-// }
+const iconToComponent: {[key in Icon]: React.FunctionComponent<React.SVGProps<SVGSVGElement>>} = {
+  save: SaveIcon,
+  edit: EditIcon,
+  times: TimesIcon,
+  plus: PlusIcon,
+  minus: MinusIcon,
+  chevronup: ChevronUpIcon,
+  chevrondown: ChevronDownIcon,
+  arrows: ArrowsIcon,
+}
 
 // TODO: Consider extending HTMLButton props
 // OR adding a comment why it was decided NOT
@@ -46,9 +46,9 @@ export interface InteractiveIconProps {
 
 export function InteractiveIcon(props: InteractiveIconProps) {
   const className = `button-clear interactive-icon ${props.className || ""}`.trim();
-  // const iconClassName = `icon ${props.iconClassName || ""}`.trim();
+  const iconClassName = `icon ${props.iconClassName || ""}`.trim();
 
-  // const IconComponent = iconToComponent[props.icon];
+  const IconComponent = iconToComponent[props.icon];
 
   const Component = props.as ?? 'button';
 
@@ -63,7 +63,7 @@ export function InteractiveIcon(props: InteractiveIconProps) {
       draggable={!!props.onDragStart}
       onDragStart={props.onDragStart}
     >
-      {/* // <IconComponent className={iconClassName} /> */}
+      <IconComponent className={iconClassName} />
     </Component>
   );
 }
