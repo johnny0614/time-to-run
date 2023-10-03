@@ -10,6 +10,7 @@ $grid-padding: 10px;
   display: flex;
   flex-direction: row;
   padding: 5px 0;
+  overflow: hidden;
 
   &.grid {
 
@@ -145,6 +146,15 @@ $grid-padding: 10px;
 
   .description-column {
     flex: 2;
+  }
+}
+
+.workoutTile {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  &:hover {
+    cursor: pointer;
   }
 }
 

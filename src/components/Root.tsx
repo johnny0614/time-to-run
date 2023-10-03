@@ -20,6 +20,7 @@ function Root() {
         <Routes>
           <Route path="/about" element={<About/>} />
           <Route path="/" element={<App/>} />
+          <Route path='/workout/:workoutId' element={<About/>} />
         </Routes>
       </div>
     </Router>

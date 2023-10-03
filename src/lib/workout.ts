@@ -13,6 +13,7 @@ export interface Plan {
 export interface Workout {
   id: string;
   description: string;
+  title?: string;
   totalDistance: number;
 }
 
