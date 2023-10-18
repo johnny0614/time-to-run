@@ -4,7 +4,10 @@ import React, {
   useEffect,
   useRef,
   useLayoutEffect,
+  useState,
 } from "react";
+
+import { Modal} from 'antd';
 
 import "./Plan.scss";
 
@@ -44,6 +47,10 @@ export function Plan({
     plan: plan,
     editedPlan: plan,
   });
+
+  const [open, setOpen] = useState(false);
+  const [confirmLoading, setConfirmLoading] = useState(false);
+  const [modalText, setModalText] = useState('Content of the modal');
 
   // Properties that aren't editable
   const { units } = plan;
@@ -207,6 +214,8 @@ export function Plan({
               : undefined
             }
           renderAsGrid={renderAsGrid}
+          openDetail={(text) => {setModalText(text);setOpen(true)}}
+
         />
       );
     });
@@ -225,6 +234,7 @@ export function Plan({
   }
 
   return (
+    <>
     <div className={`plan ${displayMode}`}>
       <h2 className="plan-heading">
         {renderTitle(title, dispatch, isEditMode)}
@@ -235,6 +245,16 @@ export function Plan({
       {renderSource(state.plan.sourceName, state.plan.sourceUrl)}
       <div ref={workoutsContainer}>{renderedWeeks}</div>
     </div>
+    <Modal
+      open={open}
+      title={modalText}
+      onCancel={() => {setOpen(false);}}
+      onOk={() => {setOpen(false);}}
+      centered
+    >
+      <p>{modalText}</p>
+    </Modal>
+    </>
   );
 }
 

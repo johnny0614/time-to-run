@@ -23,6 +23,7 @@ import "./Workout.scss";
 export interface WorkoutProps {
   id: string;
   units: Units;
+  title?:string;
   description: string;
   totalDistance: number;
   dispatch: func<Action>;
@@ -33,11 +34,16 @@ export interface WorkoutProps {
   canDelete: boolean;
   activationReason?: { reason: ActionType };
   renderAsGrid: boolean;
+  openDetail: (text: string) => void;
 }
 
-const WorkoutTile = ({description}: Pick<WorkoutProps, 'description'>) => {
+const WorkoutTile = ({description, openDetail, title}: Pick<WorkoutProps, 'description' | 'openDetail' | 'title'>) => {
   return (
-    <div className={'workoutTile'} title={description}>{description}</div>
+    <div
+    className={'workoutTile'}
+    title={title || description}
+    onClick={() => {openDetail(description);}}
+    >{title || description}</div>
   )
 }
 
@@ -45,6 +51,7 @@ export const Workout = React.memo(function (props: WorkoutProps) {
   const {
     dispatch,
     id,
+    title,
     description,
     totalDistance,
     displayMode,
@@ -53,6 +60,7 @@ export const Workout = React.memo(function (props: WorkoutProps) {
     canMoveUp,
     activationReason,
     renderAsGrid,
+    openDetail,
   } = props;
 
   const dateMemo = useMemo(() => new Date(date), [date]);
@@ -159,6 +167,8 @@ export const Workout = React.memo(function (props: WorkoutProps) {
         <div className="my-row formatted-description-row">
           <WorkoutTile
             description={description}
+            title={title}
+            openDetail={openDetail}
           />
         </div>
       </div>

@@ -7,6 +7,31 @@ export default {
   units: "kilometers",
   workouts: [
     {
+      title: 'Day 1',
+      description: "Easy 5 kilometers",
+      totalDistance: 5,
+    },
+    {
+      description: "Easy 5 kilometers",
+      totalDistance: 5,
+    },
+    {
+      description: "Easy 5 kilometers",
+      totalDistance: 5,
+    },
+    {
+      description: "Easy 5 kilometers",
+      totalDistance: 5,
+    },
+    {
+      description: "Easy 5 kilometers",
+      totalDistance: 5,
+    },
+    {
+      description: "Easy 5 kilometers",
+      totalDistance: 5,
+    },
+    {
       description: "Easy 5 kilometers",
       totalDistance: 5,
     },
